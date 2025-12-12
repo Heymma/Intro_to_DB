@@ -36,12 +36,11 @@ CREATE TABLE Orders (
     customer_id INT UNSIGNED NOT NULL,
     order_date DATE NOT NULL,
     PRIMARY KEY (order_id),
-    KEY IDX_ORDERS_CUSTOMER_ID (customer_id),
-    CONSTRAINT FK_ORDERS_CUSTOMERS FOREIGN KEY (customer_id)
-        REFERENCES CUSTOMERS (customer_id)
+    CONSTRAINT FK_ORDERS_CUSTOMERS
+        FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
         ON DELETE RESTRICT
         ON UPDATE CASCADE
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
+);
 
 CREATE TABLE Order_Details (
     orderdetailid INT UNSIGNED NOT NULL AUTO_INCREMENT,
